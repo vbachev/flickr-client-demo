@@ -13,14 +13,18 @@
             <h1 class="header-title">My flickr client</h1>
             <input type="checkbox" id="searchTrigger" name="searchTrigger" class="search-trigger">
             <label for="searchTrigger" class="search-toggle"></label>
-            <div class="search-wrapper">
+            <form id="searchForm" class="search-form">
                 <input type="text" id="searchField" class="search-field" placeholder="Search by tag names">
-                <button id="searchButton" class="search-button">Search</button>
-            </div>
+                <button class="search-button" type="submit">Search</button>
+            </form>
         </div>
     </header>
 
     <div class="wrapper">
+        <h1 class="feed-title">
+            Photo Stream
+            <span id="searchSufix"></span>
+        </h1>
         <ul id="feedContainer" class="feed-container empty"></ul>
     </div>
 
@@ -33,6 +37,12 @@
             by
             <a class="feed-item-user" href="{{userLink}}">{{user}}</a>
             <div class="feed-item-tags">{{tags}}</div>
+        </li>
+    </script>
+
+    <script id="noResultsMessage" type="text/template">
+        <li class="no-results">
+            Sorry, no results were found :(
         </li>
     </script>
 
