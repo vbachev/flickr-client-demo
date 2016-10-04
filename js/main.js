@@ -14,14 +14,14 @@ app.feedClient = (function(){
         window.scroll(0, 0);
 
         var feedItems = '';
-        for(let i in data.items){
-            let item = data.items[i];
+        for(var i in data.items){
+            var item = data.items[i];
 
             // pick out the user name ("nobody@flickr.com (Hobgoblin737)" -> "Hobgoblin737")
-            let userName = item.author.split(' (')[1].slice(0, -1);
+            var userName = item.author.split(' (')[1].slice(0, -1);
 
             // construct a valid URL for the user profile page
-            let userLink = 'https://www.flickr.com/photos/' + item.author_id;
+            var userLink = 'https://www.flickr.com/photos/' + item.author_id;
 
             feedItems += parseTemplate(feedItemTemplate, {
                 src       : item.media.m,
@@ -39,30 +39,37 @@ app.feedClient = (function(){
     }
 
     function parseTemplate (templateString, parameters) {
-        for(let key in parameters){
-            let token = new RegExp('{{' + key + '}}', 'g');
+        for(var key in parameters){
+            var token = new RegExp('{{' + key + '}}', 'g');
             templateString = templateString.replace(token, parameters[key]);
         }
         return templateString;
     }
 
-    function getFeed (tagsArray) {
-        titleSuffix.text(tagsArray ? 'for: ' + tagsArray.join(', ') : '');
+    function getFeed (tagsString) {
+        var tagsParameter = '';
+        var tagsTitleSuffix = '';
+
+        if(tagsString){
+            var tagsArray = tagsString.split(' ');
+            tagsParameter = '&tags=' + tagsArray.join(',');
+            tagsTitleSuffix = 'for: ' + tagsArray.join(', ');
+        }
+
+        titleSuffix.text(tagsTitleSuffix);
         $.ajax({
-            url: apiUrl + (tagsArray ? '&tags=' + tagsArray.join(',') : ''),
+            url: apiUrl + tagsParameter,
             dataType: 'jsonp'
         });
     }
 
     function onSearch (e) {
         e.preventDefault();
+        getFeed(searchField.val());
         
         // clear and hide the search form
         searchField.val('');
         searchTrigger.prop('checked', false);
-
-        let tagsArray = searchField.val().split(' ');
-        getFeed(tagsArray);
     }
 
     function initialize () {
@@ -100,11 +107,11 @@ app.lazyLoader = (function(){
         var viewportBottom = viewportTop + viewportHeight;
 
         $('.feed-item-image.loading').each(function(){
-            let img = $(this).find('img');
+            var img = $(this).find('img');
 
             // check if the image is inside the visible area
-            let imgTop = img.offset().top;
-            let imgBottom = imgTop + img.height();
+            var imgTop = img.offset().top;
+            var imgBottom = imgTop + img.height();
             if(imgTop > viewportBottom || imgBottom < viewportTop){
                 return;
             }
@@ -125,7 +132,7 @@ app.lazyLoader = (function(){
     }
 
     function initialize () {
-        $(window).on('scroll', loadVisibleImagesThrottled);
+        $(window).on('scroll resize', loadVisibleImagesThrottled);
     }
 
     return {
