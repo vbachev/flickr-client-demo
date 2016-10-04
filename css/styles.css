@@ -21,7 +21,7 @@ a:active {
 
 .wrapper {
     position: relative;
-    max-width: 960px;
+    max-width: 1090px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -95,7 +95,7 @@ a:active {
         padding: 0 20px;
         line-height: 46px;
         overflow: hidden;
-        background-color: #666;
+        background-color: #212124;
         transition: height .1s ease-out;
     }
 
@@ -106,6 +106,7 @@ a:active {
 
 .feed-container {
     margin: 66px 0;
+    margin-right: -10px;
     padding: 0;
     list-style-type: none;
     text-align: center;
@@ -114,6 +115,7 @@ a:active {
 .feed-item {
     display: inline-block;
     width: 240px;
+    box-sizing: border-box;
     padding: 10px;
     margin: 0 10px 20px 0;
     background: white;
@@ -122,11 +124,17 @@ a:active {
     font-size: 14px;
     text-align: left;
     vertical-align: top;
+    overflow: hidden;
 }
 
 .feed-item-image {
+    background-color: #212124;
+    margin: -10px -10px 10px;
+}
+
+.feed-item-image img {
     display: block;
-    margin: 0 auto 10px;
+    margin: 0 auto;
 }
 
 .feed-item-tags {
