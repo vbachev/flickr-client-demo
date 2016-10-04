@@ -90,10 +90,34 @@ a:active {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -60px 0 0 -60px;
-    width: 120px;
-    height: 120px;
-    background: url(../img/loader.gif);
+    margin: -40px 0 0 -40px;
+    width: 80px;
+    height: 80px;
+    background-color: #0063DC;
+    border-radius: 100%;
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+	0% {
+		-webkit-transform: scale(0);
+	}
+	100% {
+		-webkit-transform: scale(1.0);
+		opacity: 0;
+	}
+}
+
+@keyframes sk-scaleout {
+	0% { 
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	} 100% {
+		-webkit-transform: scale(1.0);
+		transform: scale(1.0);
+		opacity: 0;
+	}
 }
 
 .feed-item-image.loading img {
@@ -121,7 +145,6 @@ a:active {
 
 .search-form {
     position: relative;
-    width: 300px;
     line-height: 0;
     border-radius: 20px;
     overflow: hidden;
@@ -173,6 +196,7 @@ a:active {
 
     .search-form {
         float: right;
+        width: 300px;
     }
 }
 
@@ -204,7 +228,6 @@ a:active {
 
     .search-form {
         height: 0;
-        width: auto;
         transition: height .1s ease-out;
     }
 

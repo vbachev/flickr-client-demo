@@ -11,8 +11,10 @@
     <header class="header">
         <div class="wrapper">
             <h1 class="header-title">My flickr client</h1>
+
             <input type="checkbox" id="searchTrigger" name="searchTrigger" class="search-trigger">
             <label for="searchTrigger" class="search-toggle"></label>
+
             <form id="searchForm" class="search-form">
                 <input type="text" id="searchField" class="search-field" placeholder="Search by tag names">
                 <button class="search-button" type="submit">Search</button>
@@ -25,13 +27,19 @@
             Photo Stream
             <span id="searchSufix"></span>
         </h1>
-        <ul id="feedContainer" class="feed-container empty"></ul>
+        
+        <ul id="feedContainer" class="feed-container empty">
+            <li class="feed-item">
+                <div class="feed-item-image loading"></div>
+                Loading ...
+            </li>
+        </ul>
     </div>
 
     <script id="feedItemTemplate" type="text/template">
         <li class="feed-item">
             <div class="feed-item-image loading">
-                <img src="img/loader.gif" data-src="{{src}}" alt="{{title}}">
+                <img src="" data-src="{{src}}" alt="{{title}}">
             </div>
             <a class="feed-item-title" href="{{titleLink}}">{{title}}</a>
             by

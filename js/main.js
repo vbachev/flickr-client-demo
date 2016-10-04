@@ -101,7 +101,6 @@ app.lazyLoader = (function(){
     var timeout = 0;
     var delay = 300;
 
-    // inner/private method
     function loadVisibleImages () {
         var viewportTop = window.scrollY;
         var viewportBottom = viewportTop + viewportHeight;
@@ -124,15 +123,12 @@ app.lazyLoader = (function(){
         });
     }
 
-    // this function will use throttling to call the inner/private 
-    // function once every 300ms
-    function loadVisibleImagesThrottled () {
-        clearTimeout(timeout);
-        timeout = setTimeout(loadVisibleImages, delay);
-    }
-
     function initialize () {
-        $(window).on('scroll resize', loadVisibleImagesThrottled);
+        // this will use throttling to call the loadVisibleImages function once every 300ms
+        $(window).on('scroll resize', function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(loadVisibleImages, delay);
+        });
     }
 
     return {
