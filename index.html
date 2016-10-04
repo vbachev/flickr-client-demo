@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>My flickr client</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    
+
     <header class="header">
         <div class="wrapper">
             <h1 class="header-title">My flickr client</h1>
@@ -20,51 +21,22 @@
     </header>
 
     <div class="wrapper">
-        <ul id="feedContainer" class="feed-container">
-            <li class="feed-item">
-                <img class="feed-item-image" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=240x240&w=240&h=240">
-                <a class="feed-item-title" href="#">Photo title</a>
-                by
-                <a class="feed-item-user" href="#">User</a>
-                <div class="feed-item-tags">photo, camera, flickr</div>
-            </li>
-            <li class="feed-item">
-                <img class="feed-item-image" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=160x240&w=160&h=240">
-                <a class="feed-item-title" href="#">Photo title</a>
-                by
-                <a class="feed-item-user" href="#">User</a>
-                <div class="feed-item-tags">photo, camera, flickr</div>
-            </li>
-            <li class="feed-item">
-                <img class="feed-item-image" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=240x240&w=240&h=240">
-                <a class="feed-item-title" href="#">Photo title</a>
-                by
-                <a class="feed-item-user" href="#">User</a>
-                <div class="feed-item-tags">photo, camera, flickr</div>
-            </li>
-            <li class="feed-item">
-                <img class="feed-item-image" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=240x160&w=240&h=160">
-                <a class="feed-item-title" href="#">Photo title</a>
-                by
-                <a class="feed-item-user" href="#">User</a>
-                <div class="feed-item-tags">photo, camera, flickr</div>
-            </li>
-            <li class="feed-item">
-                <img class="feed-item-image" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=240x240&w=240&h=240">
-                <a class="feed-item-title" href="#">Photo title</a>
-                by
-                <a class="feed-item-user" href="#">User</a>
-                <div class="feed-item-tags">photo, camera, flickr</div>
-            </li>
-            <li class="feed-item">
-                <img class="feed-item-image" src="https://placeholdit.imgix.net/~text?txtsize=20&txt=240x240&w=240&h=240">
-                <a class="feed-item-title" href="#">Photo title</a>
-                by
-                <a class="feed-item-user" href="#">User</a>
-                <div class="feed-item-tags">photo, camera, flickr</div>
-            </li>
-        </ul>
+        <ul id="feedContainer" class="feed-container empty"></ul>
     </div>
 
+    <script id="feedItemTemplate" type="text/template">
+        <li class="feed-item">
+            <div class="feed-item-image">
+                <img src="{{src}}">
+            </div>
+            <a class="feed-item-title" href="#">{{title}}</a>
+            by
+            <a class="feed-item-user" href="#">{{user}}</a>
+            <div class="feed-item-tags">{{tags}}</div>
+        </li>
+    </script>
+
+    <script src="js/zepto.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
