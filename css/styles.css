@@ -48,6 +48,67 @@ a:active {
     display: none;
 }
 
+.feed-container {
+    margin: 66px 0;
+    margin-right: -10px;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+.feed-item {
+    display: inline-block;
+    width: 240px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 10px 20px 0;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    font-size: 14px;
+    text-align: left;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.feed-item-image {
+    background-color: #212124;
+    margin: -10px -10px 10px;
+}
+
+.feed-item-image img {
+    display: block;
+    margin: 0 auto;
+    transition: opacity .3s ease-out;
+}
+
+.feed-item-image.loading {
+    position: relative;
+    min-height: 120px;
+}
+
+.feed-item-image.loading:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -60px 0 0 -60px;
+    width: 120px;
+    height: 120px;
+    background: url(../img/loader.gif);
+}
+
+.feed-item-image.loading img {
+    opacity: 0;
+}
+
+.feed-item-tags {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
 @media screen and (min-width: 800px) {
     .search-toggle {
         display: none;
@@ -102,43 +163,4 @@ a:active {
     .search-trigger:checked ~ .search-wrapper {
         height: 46px;
     }
-}
-
-.feed-container {
-    margin: 66px 0;
-    margin-right: -10px;
-    padding: 0;
-    list-style-type: none;
-    text-align: center;
-}
-
-.feed-item {
-    display: inline-block;
-    width: 240px;
-    box-sizing: border-box;
-    padding: 10px;
-    margin: 0 10px 20px 0;
-    background: white;
-    border-radius: 3px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.3);
-    font-size: 14px;
-    text-align: left;
-    vertical-align: top;
-    overflow: hidden;
-}
-
-.feed-item-image {
-    background-color: #212124;
-    margin: -10px -10px 10px;
-}
-
-.feed-item-image img {
-    display: block;
-    margin: 0 auto;
-}
-
-.feed-item-tags {
-    margin-top: 5px;
-    font-size: 12px;
-    color: #666;
 }

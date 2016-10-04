@@ -26,12 +26,12 @@
 
     <script id="feedItemTemplate" type="text/template">
         <li class="feed-item">
-            <div class="feed-item-image">
-                <img src="{{src}}">
+            <div class="feed-item-image loading">
+                <img src="img/loader.gif" data-src="{{src}}" alt="{{title}}">
             </div>
-            <a class="feed-item-title" href="#">{{title}}</a>
+            <a class="feed-item-title" href="{{titleLink}}">{{title}}</a>
             by
-            <a class="feed-item-user" href="#">{{user}}</a>
+            <a class="feed-item-user" href="{{userLink}}">{{user}}</a>
             <div class="feed-item-tags">{{tags}}</div>
         </li>
     </script>
