@@ -1,0 +1,32 @@
+{
+  "name": "flickr-client-demo",
+  "version": "1.0.0",
+  "description": "A quick-n-dirty web app for the public flickr API. It aims to use the bare minimum markup, code and resources to achieve several features:",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vbachev/flickr-client-demo"
+  },
+  "author": "vasil@vasilbachev.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vbachev/flickr-client-demo/issues"
+  },
+  "homepage": "https://github.com/vbachev/flickr-client-demo",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0"
+  }
+}

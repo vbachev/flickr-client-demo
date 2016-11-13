@@ -7,54 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-    <header class="header">
-        <div class="wrapper">
-            <h1 class="header-title">My flickr client</h1>
-
-            <input type="checkbox" id="searchTrigger" name="searchTrigger" class="search-trigger">
-            <label for="searchTrigger" class="search-toggle"></label>
-
-            <form id="searchForm" class="search-form">
-                <input type="text" id="searchField" class="search-field" placeholder="Search by tag names">
-                <button class="search-button" type="submit">Search</button>
-            </form>
-        </div>
-    </header>
-
-    <div class="wrapper">
-        <h1 class="feed-title">
-            Photo Stream
-            <span id="searchSufix"></span>
-        </h1>
-        
-        <ul id="feedContainer" class="feed-container empty">
-            <li class="feed-item">
-                <div class="feed-item-image loading"></div>
-                Loading ...
-            </li>
-        </ul>
-    </div>
-
-    <script id="feedItemTemplate" type="text/template">
-        <li class="feed-item">
-            <div class="feed-item-image loading">
-                <img src="" data-src="{{src}}" alt="{{title}}">
-            </div>
-            <a class="feed-item-title" href="{{titleLink}}">{{title}}</a>
-            by
-            <a class="feed-item-user" href="{{userLink}}">{{user}}</a>
-            <div class="feed-item-tags">{{tags}}</div>
-        </li>
-    </script>
-
-    <script id="noResultsMessage" type="text/template">
-        <li class="no-results">
-            Sorry, no results were found :(
-        </li>
-    </script>
-
-    <script src="js/zepto.min.js"></script>
-    <script src="js/main.js"></script>
+    <div id="app"></div>
+    <script src="index.js"></script>
 </body>
 </html>
