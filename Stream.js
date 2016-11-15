@@ -2,12 +2,7 @@ import React from 'react';
 import Tile from './Tile';
 
 class Stream extends React.Component {
-	constructor (props) {
-		super(props);
-	}
-
 	render () {
-
 		let suffix;
 		if(this.props.searchString){
 			suffix = (

@@ -18,14 +18,14 @@ class Tile extends React.Component {
 	}
 
 	onLoad (event) {
-		event.target.parentElement.classList.remove('loading');
+		// event.target.parentElement.classList.remove('loading');
 	}
 
 	render () {
 		return (
 	        <li className="feed-item">
 	            <div className="feed-item-image loading">
-	                <img src={this.props.model.src}
+	                <img src=""
 	                	onLoad={this.onLoad} 
 	                	data-src={this.props.model.src} 
 	                	alt={this.props.model.title}/>
