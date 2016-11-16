@@ -14,7 +14,7 @@ class Stream extends React.Component {
 
 		let tiles;
 		if(this.props.posts && this.props.posts.length){
-			tiles = this.props.posts.map((post, index) => <Tile key={post.timestamp} model={post}/>);
+			tiles = this.props.posts.map((post, index) => <Tile key={'' + post.timestamp + index} model={post}/>);
 		} else if(this.props.searchString){
 			tiles = (
 				<li className="no-results">

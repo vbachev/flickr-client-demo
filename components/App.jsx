@@ -9,11 +9,9 @@ class App extends React.Component {
 
 		this.state = {
 			posts : [],
-			searchString : ''
+			searchString : '',
+			timeout : 0
 		};
-
-		// a random persistent variable not in the state?
-		this.timeout = 0;
 
 		this.onSearch = this.onSearch.bind(this);
 		this.onLoad = this.onLoad.bind(this);
@@ -30,20 +28,31 @@ class App extends React.Component {
 
 	// this will use throttling to call the loadVisibleImages function once every 300ms
 	onScroll () {
-		clearTimeout(this.timeout);
-		this.timeout = setTimeout(this.loadVisibleImages, 300);
+		clearTimeout(this.state.timeout);
+		this.setState({
+			timeout : setTimeout(this.loadVisibleImages, 300)
+		});
 	}
 
 	onSearch (searchString) {
 		this.setState({ searchString });
 	}
 
-	onLoad (posts) {
-		this.setState({ posts });
-		this.loadVisibleImages();
+	onLoad (posts, append) {
+		if(append){
+			// append the new posts to the existing ones
+			this.setState((prevState) => ({
+				posts : [].concat(prevState.posts, posts)
+			}));
+		} else {
+			// set only the new posts
+			this.setState({ posts });
+
+			// go back to top
+			window.scroll(0, 0);
+		}
 		
-		// scroll to top
-		window.scroll(0, 0);
+		this.loadVisibleImages();
 	}
 
 	loadVisibleImages () {

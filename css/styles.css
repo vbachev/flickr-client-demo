@@ -236,3 +236,31 @@ a:active {
         margin-top: 10px;
     }
 }
+
+.connector-wrapper {
+    text-align: center;
+    margin: 40px auto 80px;
+}
+
+.lazy-load-button {
+    padding: 10px 20px;
+    color: white;
+    background: #128fdc;
+    border: 0 none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    transition: all .15s;
+}
+
+.lazy-load-button:focus,
+.lazy-load-button:hover {
+    background: #1c9be9;
+    outline: 0 none;
+}
+
+.lazy-load-button:active {
+    position: relative;
+    top: 1px;
+}

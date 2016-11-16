@@ -4,8 +4,13 @@ class Connector extends React.Component {
 	constructor (props) {
 		super(props);
 
+		this.state = {
+			appendPosts : false
+		};
+
         // flickr needs a global function to process the results
 		window.jsonFlickrFeed = this.handleJsonpResult.bind(this);
+		this.onClick = this.onClick.bind(this);
 	}
 
 	initJsonpRequest () {
@@ -37,7 +42,17 @@ class Connector extends React.Component {
                 userLink  : 'https://www.flickr.com/photos/' + item.author_id
 	        }));
 		}
-		this.props.onLoad(posts);
+		this.props.onLoad(posts, this.state.appendPosts);
+		this.setState({
+			appendPosts : false
+		});
+	}
+
+	onClick () {
+		this.setState({
+			appendPosts : true
+		});
+		this.initJsonpRequest();
 	}
 
 	componentDidMount () {
@@ -54,7 +69,12 @@ class Connector extends React.Component {
 
 	render () {
 		return (
-			<div id="connector" data-search={this.props.searchString}></div>
+			<div className="connector-wrapper">
+				<button className="lazy-load-button" onClick={this.onClick}>
+					Load more ...
+				</button>
+				<div id="connector" data-search={this.props.searchString}></div>
+			</div>
 		);
 	}
 }
