@@ -1,5 +1,5 @@
 import React from 'react';
-import Tile from './Tile';
+import Tile from './Tile.jsx';
 
 class Stream extends React.Component {
 	render () {

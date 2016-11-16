@@ -1,7 +1,7 @@
 import React from 'react';
-import Search from './Search';
-import Stream from './Stream';
-import Connector from './Connector';
+import Search from './Search.jsx';
+import Stream from './Stream.jsx';
+import Connector from './Connector.jsx';
 
 class App extends React.Component {
 	constructor (props) {
