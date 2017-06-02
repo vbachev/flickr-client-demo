@@ -1,7 +1,7 @@
 var app = {};
 
 app.feedClient = (function(){
-    var apiUrl = '//api.flickr.com/services/feeds/photos_public.gne?format=json';
+    var apiUrl = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json';
     var feedItemTemplate;
     var noResultsMessage;
     var feedContainer;
